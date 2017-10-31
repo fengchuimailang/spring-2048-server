@@ -1,0 +1,13 @@
+/.settings/
+/target/
+/logs/
+.settings
+target
+bin
+/bin/
+logs
+.classpath
+.project
+.DS_Store
+/.metadata/
+*/target/
