@@ -4,5 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoginController {
-	private final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	//private final Logger logger = LoggerFactory.getLogger(LoginController.class);
+	
+	
+	
 }

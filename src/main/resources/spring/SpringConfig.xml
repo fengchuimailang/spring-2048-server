@@ -9,6 +9,47 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
  		http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd ">
+	
+	<!-- 引入jdbc配置文件 -->  
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    	<property name="locations">
+            <list>
+               <value>classpath:properties/*.properties</value>
+                <!--要是有多个配置文件，只需在这里继续添加即可 -->
+            </list>
+        </property>
+    </bean>
+	
+	<!-- 配置数据源 -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- 不使用properties来配置 -->
+        <!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
+            <property name="url" value="jdbc:mysql://localhost:3306" /> 
+            <property name="username" value="root" /> 
+            <property name="password" value="" /> -->
+       	<!-- 使用properties来配置 -->
+        <property name="driverClassName">
+            <value>${jdbc_driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${jdbc_url}</value>
+        </property>
+        <property name="username">
+            <value>${jdbc_username}</value>
+        </property>
+        <property name="password">
+            <value>${jdbc_password}</value>
+        </property>
+    </bean>
+    <!-- 配置Mybatis的文件 ，mapperLocations配置**Mapper.xml文件位置，configLocation配置MyBatisConfig.xml文件位置-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>  
+        <property name="configLocation" value="classpath:mybatis/MyBatisConfig.xml" />
+        <!-- <property name="typeAliasesPackage" value="com.tiantian.ckeditor.model" 
+            /> -->
+    </bean>
+	
 	<context:component-scan base-package="com.liubo.game" />
 	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
@@ -16,4 +57,10 @@
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- scan for mappers and let them be autowired -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.liubo.game.dal" />
+	</bean>
+	
 </beans>

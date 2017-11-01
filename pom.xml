@@ -21,8 +21,12 @@
     </repository>
   </repositories>
   
+  <!-- 配置项 -->
   <properties>
     <org.springframework.version>3.0.5.RELEASE</org.springframework.version>
+    <junit.version>4.10</junit.version>
+    <!-- mybatis版本号 -->
+    <mybatis.version>3.2.1</mybatis.version>
   </properties>
   
   <dependencies>
@@ -46,6 +50,41 @@
   		<artifactId>spring-webmvc</artifactId>
   		<version>${org.springframework.version}</version>
   	</dependency>
+  	<!--spring单元测试依赖 -->
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${org.springframework.version}</version>
+        <scope>test</scope>
+   	</dependency>
+   	
+   	<!--单元测试依赖 -->
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+    </dependency>
+  	
+  	<!--mybatis依赖 -->
+    <dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis</artifactId>
+        <version>${mybatis.version}</version>
+    </dependency>
+  	<!-- mybatis-spring依赖 -->
+  	<dependency>
+        <groupId>org.mybatis</groupId>
+        <artifactId>mybatis-spring</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+    
+    <!-- mysql依赖 -->
+    <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.29</version>
+    </dependency>
   	<dependency>  
     	<groupId>org.slf4j</groupId>  
     	<artifactId>slf4j-log4j12</artifactId>  
