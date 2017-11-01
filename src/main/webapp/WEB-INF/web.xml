@@ -9,7 +9,7 @@
 	<description>Server of 2048 Game</description>
 	
 	<welcome-file-list>
-		<welcome-file>views/index.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 
 	<filter>

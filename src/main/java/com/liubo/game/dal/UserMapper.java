@@ -4,5 +4,5 @@ import com.liubo.game.domain.User;
 
 public interface UserMapper {
 	
-	User selectUserByuserID(String userID);
+	User selectUserByUserID(String userID);
 }

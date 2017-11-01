@@ -1,10 +1,12 @@
 package com.liubo.game.das;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.liubo.game.dal.UserMapper;
 import com.liubo.game.domain.User;
 
+@Repository
 public class UserDasImpl implements IUserDas {
 
 	@Autowired
@@ -12,7 +14,7 @@ public class UserDasImpl implements IUserDas {
 	
 	@Override
 	public User selectUserByUserID(String userID) {
-		User user = userMapper.selectUserByuserID(userID);
+		User user = userMapper.selectUserByUserID(userID);
 		return user;
 	}
 
