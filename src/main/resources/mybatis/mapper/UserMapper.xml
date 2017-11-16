@@ -7,4 +7,8 @@
         SELECT * FROM game.users WHERE userID = #{userId,jdbcType=INTEGER}
     </select>
     
+    <select id="selectUserByAccount" parameterType="string" resultType="User">
+    		SELECT * FROM game.users WHERE account = #{account,jdbcType=INTEGER} 
+    </select>
+    
 </mapper>
