@@ -18,4 +18,10 @@ public class UserDasImpl implements IUserDas {
 		return user;
 	}
 
+	@Override
+	public User selectUserByAccount(String account) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
